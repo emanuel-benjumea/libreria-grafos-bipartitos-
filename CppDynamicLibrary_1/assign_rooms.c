@@ -13,3 +13,23 @@ struct Grafo* crearGrafo() {
     }
     return grafo;
 }
+char obtenerLab(int labIndex) {
+    return (char)('A' + labIndex);
+}
+
+int laboratorio_optimo(struct Grafo* grafo, int num_estudiantes) {
+    int min_capacidad_diff = INT_MAX;
+    int mejor_lab = -1;
+
+    for (int lab = 0; lab < MAX_LABS; lab++) {
+        if (lab_capacidad[lab] >= num_estudiantes) {
+            int capacidad_diff = lab_capacidad[lab] - num_estudiantes;
+            if (capacidad_diff < min_capacidad_diff) {
+                min_capacidad_diff = capacidad_diff;
+                mejor_lab; 
+            }
+        }
+    
+    }
+    return mejor_lab;
+}
