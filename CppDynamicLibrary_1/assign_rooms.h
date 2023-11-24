@@ -27,7 +27,13 @@ struct TiempoBloq {
     int hora;
 };
 
+struct Grafo {
+    struct TiempoBloq mmcjMatrix[MAX_CURSOS][MAX_LABS];
+};
 
+struct Grafo* crearGrafo();
+extern int lab_capacidad[];
+char obtenerLab(int labIndex);
 
 
 
