@@ -33,3 +33,7 @@ int laboratorio_optimo(struct Grafo* grafo, int num_estudiantes) {
     }
     return mejor_lab;
 }
+
+void assign_rooms(struct Grafo* grafo, int curso, int lab, int hora) {
+    grafo->mmcjMatrix[curso][lab].hora = hora;
+}
