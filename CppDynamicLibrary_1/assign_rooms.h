@@ -36,7 +36,12 @@ extern int lab_capacidad[];
 char obtenerLab(int labIndex);
 
 
-
+int laboratorio_optimo(struct Grafo* grafo, int num_estudiantes);
+void assign_rooms(struct Grafo* grafo, int curso, int lab, int hora);
+void remove_overlapping_blocks(struct Grafo* grafo, int curso1);
+void select_blocks(struct Grafo* grafo, int curso, int hora);
+bool laboratorio_disponibilidad(struct Grafo* grafo, int lab, int hora);
+void listado_tiempo_disponible(struct Grafo* grafo);
 
 #endif /* ASSIGN_ROOMS_H */
 
