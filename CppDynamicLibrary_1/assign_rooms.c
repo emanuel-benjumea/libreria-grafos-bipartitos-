@@ -7,6 +7,8 @@ struct Grafo* crearGrafo() {
     struct Grafo* grafo = (struct Grafo*)malloc(sizeof(struct Grafo));
     int i, j;
     for (i = 0; i < MAX_CURSOS; i++) {
+        for (j = 0; j < MAX_LABS; j++) {
+            grafo->mmcjMatrix[i][j].hora = 0;
         }
     }
     return grafo;
