@@ -51,3 +51,41 @@ void select_blocks(struct Grafo* grafo, int curso, int hora) {
         }
     }
 }
+bool laboratorio_disponibilidad(struct Grafo* grafo, int lab, int hora) {
+    for (int curso = 0; curso < MAX_CURSOS; curso++) {
+        if (grafo->mmcjMatrix[curso][lab].hora == hora) {
+            return false;  
+        }
+    }
+    return true;  
+}
+
+void listado_tiempo_disponible(struct Grafo* grafo) {
+    printf("Bloques de tiempo disponibles:\n");
+    for (int lab = 0; lab < MAX_LABS; lab++) {
+        printf("Laboratorio %c:\n", obtenerLab(lab));
+        bool labDisponible = false;
+
+        for (int hora = 7; hora <= 22; hora++) {
+            bool horaDisponible = true;
+
+            for (int curso = 0; curso < MAX_CURSOS; curso++) {
+                if (grafo->mmcjMatrix[curso][lab].hora == hora) {
+                    horaDisponible = false;
+                    break;
+                }
+            }
+
+            if (horaDisponible) {
+                printf("  Hora %d\n", hora);
+                labDisponible = true;
+            }
+        }
+
+        if (!labDisponible) {
+            printf("  No hay bloques de tiempo disponibles.\n");
+        }
+
+        printf("\n");
+    }
+}
