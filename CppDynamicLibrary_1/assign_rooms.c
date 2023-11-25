@@ -37,3 +37,17 @@ int laboratorio_optimo(struct Grafo* grafo, int num_estudiantes) {
 void assign_rooms(struct Grafo* grafo, int curso, int lab, int hora) {
     grafo->mmcjMatrix[curso][lab].hora = hora;
 }
+
+void remove_overlapping_blocks(struct Grafo* grafo, int curso1) {
+    for (int lab = 0; lab < MAX_LABS; lab++) {
+        grafo->mmcjMatrix[curso1][lab].hora = 0;
+    }
+}
+
+void select_blocks(struct Grafo* grafo, int curso, int hora) {
+    for (int lab = 0; lab < MAX_LABS; lab++) {
+        if (grafo->mmcjMatrix[curso][lab].hora > 0) {
+            grafo->mmcjMatrix[curso][lab].hora = hora;
+        }
+    }
+}
